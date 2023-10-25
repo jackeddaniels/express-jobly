@@ -40,29 +40,29 @@ function sqlForPartialUpdate(dataToUpdate, jsToSql) {
  *
  * return a object of filtered results from SQL query
  */
-async function filterBy(filters) {
-  let whereClauses = ["WHERE"];
+async function createWhereClause(filters) {
+  let whereClauses = [];
+  let values = [];
+
   for (const key in filters) {
-    if ("nameLike" === key) {
-      whereClauses.push(`name ILIKE '%${filters[key]}%'`);
+    if (key === "nameLike") {
+      values.push('%' + filters[key] + '%')
+      whereClauses.push(`name ILIKE '$${values.length}'`);
     } else if ("minEmployees" === key) {
-      whereClauses.push(`name > ${filters[key]}`);
+      values.push(filters[key])
+      whereClauses.push(`num_employees > $${filters[key]}`);
     } else if ("maxEmployees" === key) {
-      whereClauses.push(`name < ${filters[key]}`);
+      values.push(filters[key])
+      whereClauses.push(`num_employees < $${filters[key]}`);
     }
   }
 
-  const querySql = `
-      SELECT * FROM COMPANIES
-      WHERE $1 
-      RETURNING
-          handle,
-          name,
-          description,
-          num_employees AS "numEmployees",
-          logo_url AS "logoUrl"`;
-  const result = await db.query(querySql, [whereClauses]);
-  const companys = result.rows[0];
+  whereClauses.join(' AND ')
+  if (values.length !== 0) {
+    const where = 'WHERE'.concat();
+  }
+
+  return [where, values];
 }
 
-module.exports = { sqlForPartialUpdate, filterBy };
+module.exports = { sqlForPartialUpdate, createWhereClause };

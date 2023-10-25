@@ -55,6 +55,7 @@ describe("sqlForPartialUpdate", function () {
   });
 });
 
+
 describe("filterBy", function () {
   test("works: nameLike", function () {
     const result = filterBy({ nameLike: "c1" });

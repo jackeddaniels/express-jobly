@@ -2,7 +2,7 @@
 
 const db = require("../db");
 const { BadRequestError, NotFoundError } = require("../expressError");
-const { sqlForPartialUpdate } = require("../helpers/sql");
+const { sqlForPartialUpdate, createWhereClause } = require("../helpers/sql");
 
 /** Related functions for companies. */
 
@@ -55,7 +55,9 @@ class Company {
    * Returns [{ handle, name, description, numEmployees, logoUrl }, ...]
    * */
 
-  static async findAll() {
+  static async findAll(filters) {
+    const [] = await createWhereClause(filters);
+
     const companiesRes = await db.query(`
         SELECT handle,
                name,
@@ -63,7 +65,8 @@ class Company {
                num_employees AS "numEmployees",
                logo_url      AS "logoUrl"
         FROM companies
-        ORDER BY name`);
+        WHERE ${where[1]}
+        ORDER BY name`, [where]);
     return companiesRes.rows;
   }
 
