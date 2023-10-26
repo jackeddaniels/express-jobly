@@ -87,6 +87,4 @@ describe("createWhereClause", function () {
       expect(err instanceof BadRequestError).toBeTruthy();
     }
   });
-
-  //TODO: add empty request, check wrong type of input min: cat, no filters
 });
