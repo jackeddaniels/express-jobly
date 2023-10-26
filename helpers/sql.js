@@ -37,9 +37,17 @@ function sqlForPartialUpdate(dataToUpdate, jsToSql) {
  *
  * filters like: {nameLike: "string", minEmployees: 20}
  *
- * return a object of filtered results from SQL query
+ * return a string and an array of SQL values inside an array
+ * ex. ["WHERE name ILIKE $1", ["%c1%"]]
  */
 function createWhereClause(filters) {
+  console.log('MIN=', filters.minEmployees, 'MAX=', filters.maxEmployees)
+  // if ((filters.minEmployees || false && filters.maxEmployees || false) &&
+  //   (filters.minEmployees > filters.maxEmployees)) {
+  if (filters.minEmployees > filters.maxEmployees) {
+    throw new BadRequestError("Max should be greater than Min.")
+  }
+
   let whereClauses = [];
   let values = [];
 
