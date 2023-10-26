@@ -38,6 +38,17 @@ function ensureLoggedIn(req, res, next) {
   throw new UnauthorizedError();
 }
 
+/** Middleware to use when user must be admin or user associated with data.
+ *
+ * If not, raises Unauthorized.
+ */
+
+function ensureAuthorizedUser(req, res, next) {
+  if ((req.params?.username === res.locals.user?.username) ||
+  (res.locals.user?.isAdmin)) return next();
+  throw new UnauthorizedError();
+}
+
 /** Middleware to use when they must be admin to access.
  *
  * If not, raises Unauthorized.
@@ -51,5 +62,6 @@ function ensureAdmin(req, res, next) {
 module.exports = {
   authenticateJWT,
   ensureLoggedIn,
-  ensureAdmin,
+  ensureAuthorizedUser,
+  ensureAdmin
 };
