@@ -40,8 +40,7 @@ function sqlForPartialUpdate(dataToUpdate, jsToSql) {
  * ex. ["WHERE name ILIKE $1", ["%c1%"]]
  */
 function createWhereClause(filters) {
-  console.log('MIN = ', typeof filters.minEmployees)
-  if (filters.minEmployees > filters.maxEmployees) {
+  if (filters?.minEmployees > filters?.maxEmployees) {
     throw new BadRequestError("Max should be greater than Min.");
   }
 
