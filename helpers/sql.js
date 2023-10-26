@@ -41,6 +41,7 @@ function sqlForPartialUpdate(dataToUpdate, jsToSql) {
  */
 function createWhereClause(filters) {
   if (
+    //TODO clean up logic
     filters?.minEmployees &&
     filters?.maxEmployees &&
     Number(filters?.minEmployees) > Number(filters?.maxEmployees)
@@ -62,6 +63,7 @@ function createWhereClause(filters) {
       values.push(Number(filters[key]));
       whereClauses.push(`num_employees <= $${values.length}`);
     } else {
+      //TODO: remove once add json schema
       throw new BadRequestError("not valid filter");
     }
   }
