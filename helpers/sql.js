@@ -33,18 +33,19 @@ function sqlForPartialUpdate(dataToUpdate, jsToSql) {
   };
 }
 
-/** takes object of filters and returns filtered object of SQL results
+/** takes object of filters like: {minEmployees: 2}
  *
- * filters like: {nameLike: "string", minEmployees: 20}
- *
- * return a string and an array of SQL values inside an array
+ * return an array containing a
+ *  SQL formatted Where clause string and an array of values
  * ex. ["WHERE name ILIKE $1", ["%c1%"]]
  */
 function createWhereClause(filters) {
-  console.log('MIN=', filters.minEmployees, 'MAX=', filters.maxEmployees)
-   if ((filters.minEmployees && filters.maxEmployees) &&
-     (Number(filters.minEmployees) > Number(filters.maxEmployees))) {
-    throw new BadRequestError("Max should be greater than Min.")
+  if (
+    filters?.minEmployees &&
+    filters?.maxEmployees &&
+    Number(filters?.minEmployees) > Number(filters?.maxEmployees)
+  ) {
+    throw new BadRequestError("Max should be greater than Min.");
   }
 
   let whereClauses = [];
@@ -56,18 +57,21 @@ function createWhereClause(filters) {
       whereClauses.push(`name ILIKE $${values.length}`);
     } else if (key === "minEmployees") {
       values.push(Number(filters[key]));
-      whereClauses.push(`num_employees > $${values.length}`);
+      whereClauses.push(`num_employees >= $${values.length}`);
     } else if (key === "maxEmployees") {
       values.push(Number(filters[key]));
-      whereClauses.push(`num_employees < $${values.length}`);
+      whereClauses.push(`num_employees <= $${values.length}`);
+    } else {
+      throw new BadRequestError("not valid filter");
     }
   }
 
   let where = whereClauses.join(" AND ");
+
   if (values.length !== 0) {
     where = "WHERE ".concat(where);
   }
-  console.log(where, values);
+
   return [where, values];
 }
 

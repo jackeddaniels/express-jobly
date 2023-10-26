@@ -63,17 +63,20 @@ describe("createWhereClause", function () {
 
   test("works: minEmployees", function () {
     const result = createWhereClause({ minEmployees: 3 });
-    expect(result).toEqual(["WHERE num_employees > $1", [3]]);
+    expect(result).toEqual(["WHERE num_employees >= $1", [3]]);
   });
 
   test("works: maxEmployees", function () {
     const result = createWhereClause({ maxEmployees: 1 });
-    expect(result).toEqual(["WHERE num_employees < $1", [1]]);
+    expect(result).toEqual(["WHERE num_employees <= $1", [1]]);
   });
 
   test("invalid filter", function () {
-    const result = createWhereClause({ badFilter: 1 });
-    expect(result).toEqual(["", []]);
+    try {
+      const result = createWhereClause({ badFilter: 1 });
+    } catch (err) {
+      expect(err instanceof BadRequestError).toBeTruthy();
+    }
   });
 
   test("minEmployees > maxEmployees: BadRequest error", function () {
