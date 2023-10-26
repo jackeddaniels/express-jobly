@@ -1,7 +1,6 @@
 "use strict";
 
 const { BadRequestError } = require("../expressError");
-const db = require("../db");
 
 /** Takes updated data, converts to SQL
  *
@@ -40,28 +39,28 @@ function sqlForPartialUpdate(dataToUpdate, jsToSql) {
  *
  * return a object of filtered results from SQL query
  */
-async function createWhereClause(filters) {
+function createWhereClause(filters) {
   let whereClauses = [];
   let values = [];
 
   for (const key in filters) {
     if (key === "nameLike") {
-      values.push('%' + filters[key] + '%')
-      whereClauses.push(`name ILIKE '$${values.length}'`);
-    } else if ("minEmployees" === key) {
-      values.push(filters[key])
-      whereClauses.push(`num_employees > $${filters[key]}`);
-    } else if ("maxEmployees" === key) {
-      values.push(filters[key])
-      whereClauses.push(`num_employees < $${filters[key]}`);
+      values.push(`%${filters[key]}%`);
+      whereClauses.push(`name ILIKE $${values.length}`);
+    } else if (key === "minEmployees") {
+      values.push(Number(filters[key]));
+      whereClauses.push(`num_employees > $${values.length}`);
+    } else if (key === "maxEmployees") {
+      values.push(Number(filters[key]));
+      whereClauses.push(`num_employees < $${values.length}`);
     }
   }
 
-  whereClauses.join(' AND ')
+  let where = whereClauses.join(" AND ");
   if (values.length !== 0) {
-    const where = 'WHERE'.concat();
+    where = "WHERE ".concat(where);
   }
-
+  console.log(where, values);
   return [where, values];
 }
 

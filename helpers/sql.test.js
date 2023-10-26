@@ -1,4 +1,4 @@
-const { sqlForPartialUpdate, filterBy } = require("./sql");
+const { sqlForPartialUpdate, createWhereClause } = require("./sql");
 const { BadRequestError } = require("../expressError");
 
 describe("sqlForPartialUpdate", function () {
@@ -55,65 +55,30 @@ describe("sqlForPartialUpdate", function () {
   });
 });
 
-
-describe("filterBy", function () {
+describe("createWhereClause", function () {
   test("works: nameLike", function () {
-    const result = filterBy({ nameLike: "c1" });
-    expect(result).toEqual({
-      company: {
-        handle: "c1",
-        name: "C1",
-        description: "Desc1",
-        numEmployees: 1,
-        logoUrl: " http://c1.img",
-      },
-    });
-  });
-
-  test("works: nameLike no Results", function () {
-    const result = filterBy({ nameLike: "c1" });
-    expect(result).toEqual({});
+    const result = createWhereClause({ nameLike: "c1" });
+    expect(result).toEqual(["WHERE name ILIKE $1", ["%c1%"]]);
   });
 
   test("works: minEmployees", function () {
-    const result = filterBy({ minEmployees: 3 });
-    expect(result).toEqual({
-      company: {
-        handle: "c3",
-        name: "C3",
-        description: "Desc3",
-        numEmployees: 3,
-        logoUrl: " http://c3.img",
-      },
-    });
-  });
-
-  test("works: minEmployees no Results", function () {
-    const result = filterBy({ minEmployees: 100 });
-    expect(result).toEqual({});
+    const result = createWhereClause({ minEmployees: 3 });
+    expect(result).toEqual(["WHERE num_employees > $1", [3]]);
   });
 
   test("works: maxEmployees", function () {
-    const result = filterBy({ maxEmployees: 1 });
-    expect(result).toEqual({
-      company: {
-        handle: "c1",
-        name: "C1",
-        description: "Desc1",
-        numEmployees: 1,
-        logoUrl: " http://c1.img",
-      },
-    });
+    const result = createWhereClause({ maxEmployees: 1 });
+    expect(result).toEqual(["WHERE num_employees < $1", [1]]);
   });
 
-  test("works: maxEmployees no Results", function () {
-    const result = filterBy({ maxEmployees: 0 });
-    expect(result).toEqual({});
+  test("invalid filter", function () {
+    const result = createWhereClause({ badFilter: 1 });
+    expect(result).toEqual(["", []]);
   });
 
   test("minEmployees > maxEmployees: BadRequest error", function () {
     try {
-      const result = filterBy({ minEmployees: 100, maxEmployees: 50 });
+      const result = createWhereClause({ minEmployees: 100, maxEmployees: 50 });
       console.warn("filter by worked test failed");
     } catch (err) {
       expect(err instanceof BadRequestError).toBeTruthy();
