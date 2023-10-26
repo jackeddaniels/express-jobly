@@ -42,9 +42,8 @@ function sqlForPartialUpdate(dataToUpdate, jsToSql) {
  */
 function createWhereClause(filters) {
   console.log('MIN=', filters.minEmployees, 'MAX=', filters.maxEmployees)
-  // if ((filters.minEmployees || false && filters.maxEmployees || false) &&
-  //   (filters.minEmployees > filters.maxEmployees)) {
-  if (filters.minEmployees > filters.maxEmployees) {
+   if ((filters.minEmployees && filters.maxEmployees) &&
+     (Number(filters.minEmployees) > Number(filters.maxEmployees))) {
     throw new BadRequestError("Max should be greater than Min.")
   }
 
