@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for express-jobly/helpers/sql.js</title>
+    <title>Code coverage report for express-jobly/routes/companies.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">express-jobly/helpers</a> sql.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">express-jobly/routes</a> companies.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/27</span>
+                <span class='fraction'>34/34</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/26</span>
+                <span class='fraction'>32/32</span>
             </div>
         
             
@@ -141,162 +141,234 @@
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-yes">33x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
 &nbsp;
+/** Routes for companies. */
+&nbsp;
+const jsonschema = require("jsonschema");
+const express = require("express");
+&nbsp;
 const { BadRequestError } = require("../expressError");
+const { ensureLoggedIn } = require("../middleware/auth");
+const Company = require("../models/company");
 &nbsp;
-/** Takes updated data, converts to SQL
+const companyNewSchema = require("../schemas/companyNew.json");
+const companyUpdateSchema = require("../schemas/companyUpdate.json");
+&nbsp;
+const router = new express.Router();
+&nbsp;
+/** POST / { company } =&gt;  { company }
  *
- * dataToUpdate = data submitted to update
- * ex. {firstName, description, ... }
+ * company should be { handle, name, description, numEmployees, logoUrl }
  *
- * jsToSql contains keys to update in obj form
- * ex. {"firstName": "first_name"}
+ * Returns { handle, name, description, numEmployees, logoUrl }
  *
- * If no data is passed in, throw BadRequestError, otherwise
- * Returns an object with two keys setCols (string values), values (array of values)
- * ex. {
- *  setCols: `"first_name"=$1, '"description"=$2 ... `,
- *  values: ['Aliya', 'New Description' ...]
- * }
+ * Authorization required: login
  */
 &nbsp;
-function sqlForPartialUpdate(dataToUpdate, jsToSql) {
-  const keys = Object.keys(dataToUpdate);
-  if (keys.length === 0) throw new BadRequestError("No data");
+router.post("/", ensureLoggedIn, async function (req, res, next) {
+  const validator = jsonschema.validate(req.body, companyNewSchema, {
+    required: true,
+  });
+  if (!validator.valid) {
+    const errs = validator.errors.map((e) =&gt; e.stack);
+    throw new BadRequestError(errs);
+  }
 &nbsp;
-  // {firstName: 'Aliya', age: 32} =&gt; ['"first_name"=$1', '"age"=$2']
-  const cols = keys.map(
-    (colName, idx) =&gt; `"${jsToSql[colName] || colName}"=$${idx + 1}`
-  );
+  const company = await Company.create(req.body);
+  return res.status(201).json({ company });
+});
 &nbsp;
-  return {
-    setCols: cols.join(", "),
-    values: Object.values(dataToUpdate),
-  };
-}
-&nbsp;
-/** takes object of filters like: {minEmployees: 2}
+/** GET /  =&gt;
+ *   { companies: [ { handle, name, description, numEmployees, logoUrl }, ...] }
  *
- * return an array containing a
- *  SQL formatted Where clause string and an array of values
- * ex. ["WHERE name ILIKE $1", ["%c1%"]]
+ * Can filter on provided search filters:
+ * - minEmployees
+ * - maxEmployees
+ * - nameLike (will find case-insensitive, partial matches)
+ *
+ * Authorization required: none
  */
-function createWhereClause(filters) {
-  if (
-    filters?.minEmployees &amp;&amp;
-    filters?.maxEmployees &amp;&amp;
-    Number(filters?.minEmployees) &gt; Number(filters?.maxEmployees)
-  ) {
-    throw new BadRequestError("Max should be greater than Min.");
+&nbsp;
+router.get("/", async function (req, res, next) {
+  const companies = await Company.findAll(req.query);
+  return res.json({ companies });
+});
+&nbsp;
+/** GET /[handle]  =&gt;  { company }
+ *
+ *  Company is { handle, name, description, numEmployees, logoUrl, jobs }
+ *   where jobs is [{ id, title, salary, equity }, ...]
+ *
+ * Authorization required: none
+ */
+&nbsp;
+router.get("/:handle", async function (req, res, next) {
+  const company = await Company.get(req.params.handle);
+  return res.json({ company });
+});
+&nbsp;
+/** PATCH /[handle] { fld1, fld2, ... } =&gt; { company }
+ *
+ * Patches company data.
+ *
+ * fields can be: { name, description, numEmployees, logo_url }
+ *
+ * Returns { handle, name, description, numEmployees, logo_url }
+ *
+ * Authorization required: login
+ */
+&nbsp;
+router.patch("/:handle", ensureLoggedIn, async function (req, res, next) {
+  const validator = jsonschema.validate(req.body, companyUpdateSchema, {
+    required: true,
+  });
+  if (!validator.valid) {
+    const errs = validator.errors.map((e) =&gt; e.stack);
+    throw new BadRequestError(errs);
   }
 &nbsp;
-  let whereClauses = [];
-  let values = [];
+  const company = await Company.update(req.params.handle, req.body);
+  return res.json({ company });
+});
 &nbsp;
-  for (const key in filters) {
-    if (key === "nameLike") {
-      values.push(`%${filters[key]}%`);
-      whereClauses.push(`name ILIKE $${values.length}`);
-    } else if (key === "minEmployees") {
-      values.push(Number(filters[key]));
-      whereClauses.push(`num_employees &gt;= $${values.length}`);
-    } else if (key === "maxEmployees") {
-      values.push(Number(filters[key]));
-      whereClauses.push(`num_employees &lt;= $${values.length}`);
-    } else {
-      throw new BadRequestError("not valid filter");
-    }
-  }
+/** DELETE /[handle]  =&gt;  { deleted: handle }
+ *
+ * Authorization: login
+ */
 &nbsp;
-  let where = whereClauses.join(" AND ");
+router.delete("/:handle", ensureLoggedIn, async function (req, res, next) {
+  await Company.remove(req.params.handle);
+  return res.json({ deleted: req.params.handle });
+});
 &nbsp;
-  if (values.length !== 0) {
-    where = "WHERE ".concat(where);
-  }
-&nbsp;
-  return [where, values];
-}
-&nbsp;
-module.exports = { sqlForPartialUpdate, createWhereClause };
+module.exports = router;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

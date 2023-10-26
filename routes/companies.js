@@ -48,7 +48,8 @@ router.post("/", ensureLoggedIn, async function (req, res, next) {
  */
 
 router.get("/", async function (req, res, next) {
-  console.warn("Query object=", req.query);
+  //TODO: add in validation schema
+  //Make company of req.query so it is not immutable
   const companies = await Company.findAll(req.query);
   return res.json({ companies });
 });

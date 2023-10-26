@@ -50,7 +50,8 @@ class Company {
   }
 
   /** Find all companies.
-   *
+   *Takes filters like: {minEmployees: 4}
+   //TODO: add possible filters and namelike caseinsensitive and can contain partials
    * Returns [{ handle, name, description, numEmployees, logoUrl }, ...]
    * */
 
