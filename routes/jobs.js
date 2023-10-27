@@ -7,7 +7,7 @@ const express = require("express");
 
 const { BadRequestError } = require("../expressError");
 const { ensureLoggedIn, ensureAdmin } = require("../middleware/auth");
-const Job = require("../models/jobs");
+const Job = require("../models/job");
 
 const jobNewSchema = require("../schemas/jobNew.json");
 const jobUpdateSchema = require("../schemas/jobUpdate.json");
@@ -82,7 +82,7 @@ router.get("/:handle", async function (req, res, next) {
   return res.json({ job });
 });
 
-/** PATCH /[handle] { fld1, fld2, ... } => {  }
+/** PATCH /[id] { fld1, fld2, ... } => {  }
  *
  * Patches  data.
  *

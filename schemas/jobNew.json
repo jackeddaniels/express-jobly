@@ -23,9 +23,7 @@
     },
     "additionalProperties": false,
     "required": [
-    "title", 
-    "salary", 
-    "equity", 
+    "title",
     "companyHandle"
     ]
 }

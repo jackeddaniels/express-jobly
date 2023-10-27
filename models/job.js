@@ -40,7 +40,7 @@ class Job {
   /** Find all jobs.
    *Takes filters like: {title: "Big Boss"}
    *
-   * Returns [{ title, salary, equity, company_handle }, ...]
+   * Returns [{ id, title, salary, equity, company_handle }, ...]
    * */
 
   static async findAll(filters) {
@@ -49,13 +49,14 @@ class Job {
     const jobsRes = await db.query(
       `
         SELECT
+          id,
           title,
           salary,
           equity,
           company_handle
         FROM jobs
         ${whereClauses}
-        ORDER BY title`,
+        ORDER BY id, title`,
       values
     );
     return jobsRes.rows;
