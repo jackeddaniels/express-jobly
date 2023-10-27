@@ -11,6 +11,7 @@ const { authenticateJWT } = require("./middleware/auth");
 const authRoutes = require("./routes/auth");
 const companiesRoutes = require("./routes/companies");
 const usersRoutes = require("./routes/users");
+const jobsRoutes = require("./routes/jobs");
 
 const morgan = require("morgan");
 
@@ -24,7 +25,7 @@ app.use(authenticateJWT);
 app.use("/auth", authRoutes);
 app.use("/companies", companiesRoutes);
 app.use("/users", usersRoutes);
-
+app.use("/jobs", jobsRoutes);
 
 /** Handle 404 errors -- this matches everything */
 app.use(function (req, res, next) {
@@ -35,7 +36,7 @@ app.use(function (req, res, next) {
 app.use(function (err, req, res, next) {
   if (process.env.NODE_ENV !== "test") console.error(err.stack);
   /* istanbul ignore next (ignore for coverage) */
-  const status= err.status || 500;
+  const status = err.status || 500;
   const message = err.message;
 
   return res.status(status).json({
